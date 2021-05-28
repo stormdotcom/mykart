@@ -1,0 +1,51 @@
+<section>
+    <div class="container">
+    <div class="row" >
+        {{#if orders}}
+
+        <div class="col-md-12 mt-2 order-table">
+            <h3 class="py-3 mb-4 pt-5 align-center bold-head">Order history</h3>
+        <table class="table align-middle mt-3 mb-5 " >
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Address</th>
+      <th scope="col">Zip Code</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+      {{#each orders}}
+    <tr>
+      <td scope="row">{{this.date}}</td>
+      <td scope="row">{{this.deliveryDetails.address}},</td>
+      <td scope="row">{{this.deliveryDetails.pinCode}}</td>
+      <td scope="row">&#x20b9; {{this.finalAmount}} </td>
+      <td scope="row">{{this.paymentMethod}} </td>
+      <td scope="row">{{this.status}} </td>
+      <td>
+          <a href="/orders/view-products/{{this._id}}" class=" btn-advert px-3">View Product</a>  
+      </td>
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+</div>
+{{else}}
+<section class="pt-5">
+<div class="row mt-5">
+    <h3 class="text-center shadow-sm p-3 mb-5 bg-white rounded ">No orders Found</h3>
+</div>
+</section>
+     
+{{/if}}
+
+    </div>
+
+    </div>
+</section>
+

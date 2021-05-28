@@ -1,0 +1,62 @@
+ {{#if user}}
+<header class="header skin-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="/"> <img src="/images/body/MYKART-logo.jpg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/product">Product</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart">Cart <span class="badge bg-info text-dark " id="cart-count">{{cartCount}}</span></a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="/orders">Orders <span class="badge bg-success" id="cart-count">{{orderCount}}</span></a>
+                    </li>
+                  
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="/contact">Contact us</a>
+                    </li>
+                </ul>
+                 <div id="wishlist" class="nav-item wishlist">
+                        <a href="/wish-list">  <span class="badge bg-info text-dark " id="wish-count"><i class="far fa-star"></i> {{wishListCount}}</span></a>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                
+                    {{user.fullname}}
+                  
+              
+                        </a>
+                        <ul class="dropdown-menu menu-drop" aria-labelledby="navbarDropdown">
+              
+                   <li><a class="dropdown-item waves-effect waves-light" href="/unreachable">Settings</a></li>
+         
+                    <li><a class="dropdown-item waves-effect waves-light" href="/unreachable">Get Quote</a></li>
+
+                     <li><a class="dropdown-item waves-effect waves-light" href="/logout">Logout</a></li>
+
+                       
+                       
+                        </ul>
+                        
+                    </div>
+            </div>
+        </div>
+    </nav>
+</header>
+ {{/if }} 

@@ -1,0 +1,65 @@
+  <section class="form">
+        <div class="container my-4">
+            <div class="row login-row mt-5">
+                <div class="col-lg-5 nopadding">
+                    <img src="/images/body/login-cover.jpg" class="img-fluid login-img" alt="loginCover">
+                </div>
+                <div class="col-lg-7 px-5 pt-5">
+                    <h1 class="py-3"><img src="/images/body/MYKART-logo.jpg" alt=""></h1>
+                    <h4>Sign into your account</h4>
+                    <form  action="/login" method="post">
+                           {{#if err}}
+                            <div class="alert alert-warning alert-dismissible fade show w-50 p-3" role="alert">
+                                <strong>Error </strong>  {{err.ErrMsg}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            {{/if}} 
+
+                     {{#if alert}}
+                     {{#each alert}}
+                        <div class="alert alert-warning alert-dismissible fade show w-50 p-3" role="alert">
+                            <strong>Error</strong> {{this.msg}}  
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                         </div>
+                         {{/each}}
+                     {{/if}}
+                            <!-- User Name -->
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                                <input type="email" name="email" id="email" class="form-control my-4 p-3" placeholder="Email">
+                                <p id="i1"></p>
+                            </div>
+                              <!-- Password -->
+                            <div class="form-row">
+                                <div class="col-lg-7">
+                                    <input type="password" name="password" id="password" class="form-control my-4 p-3" placeholder="***********">
+                                     <p id="i2"></p>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-lg-7">
+                                   <button type="submit" id="login" class="btn-login mt-3 mb-3">Login </button>
+                                </div>
+                            </div>
+                            <a href="/forget"> Forget Password</a>
+                            <p>Don't have an account? <a href="/signup">Register here</a></p> 
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+<script>
+    $document().ready(()=>{
+        $('#login').click(()=>{
+            var email= $('#email').val();
+            var pass= $('#password').val();
+            if (email=="" && pass==){
+                $('#i1').text('Enter your email');
+                $('#email').focus();
+                return false;
+            }
+        })
+    })
+</script>

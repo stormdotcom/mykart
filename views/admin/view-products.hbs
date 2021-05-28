@@ -1,0 +1,49 @@
+<section class="view-product">
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-6 mt-5 pt-2 mb-5">
+            <a href="/admin/add-product" class="btn btn-success button position-static mr-auto mt-3"> Add Product</a>
+            </div>
+
+        </div>
+
+  
+
+<table class="table align-middle pt-3 order-list-table" id="productsTable">
+  <thead>
+    <tr>
+    <th scope="col">#</th>
+      <th scope="col">Item ID</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Price</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each products}}
+     
+    <tr>
+      <th scope="row">{{@index}} </th>
+      <td>{{this.itemNo}}</td>
+      <td>{{this.itemName}}</td>
+      <td>{{this.category}}</td>
+      <td> &#x20b9; {{this.price}}</td>
+      <td>{{this.description}}</td>
+       <td> <img src="/images/product/{{this._id}}.jpg" class="product-img " alt="product-image"></td>
+      <td>  <div class="btn-group btn-group-sm">
+            <a href="/admin/edit-product/{{this._id}}" class="btn btn-primary button">Edit</a>
+            <a href="/admin/delete-product/{{this._id}}"  onclick=" return confirm('Are sure you want to delete item {{this.itemName}}?')" class="btn btn-danger button">Delete</a> </div>
+            </td>
+    </tr>
+    
+    {{/each}}
+  </tbody>
+</table>
+    </div>
+</section>
+<script>
+
+</script>

@@ -1,0 +1,57 @@
+<div class="container ">
+    <div class="row mb-5">
+        <div class="col-md-12  order-list-admin"></div>
+         {{#if orderList}}
+            <div class="panel-body ">
+    
+                <table class="table table-hover table-striped table-bordered order-list-table">
+                    <thead>
+                        <tr>
+                            <th> Received Date</th>
+                            <th>Customer Name</th>
+                            <th>City</th>
+                            <th>Zipcode</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>State</th>
+                            <th>Payment Method</th>
+                             <th>Total without VAT </th>
+                             <th>Final Amount</th>
+                             <th>Status</th>
+                            <th>Option</th>
+                        </tr>
+                    </thead>
+                    {{#each orderList}}
+                    <tbody>
+                        
+                        <tr>
+                            <td>{{this.date}}</td>
+                            <td>{{this.deliveryDetails.customerFName}} {{this.deliveryDetails.customerLName}}</td>
+                            <td>{{this.deliveryDetails.city}}</td>
+                            <td>{{this.deliveryDetails.pinCode}}</td>
+                            <td>{{this.deliveryDetails.mobileNo}}</td>
+                            <td>{{this.deliveryDetails.emailID}}</td>
+                            <td>{{this.deliveryDetails.state}}</td>
+                            <td>{{this.paymentMethod}}</td>
+                            <td>&#x20b9; {{this.totalAmount}}</td>
+                            <td>&#x20b9; {{this.finalAmount}}</td>
+                            <td> <span id="{{this._id}}" > {{this.status}}</span>  
+                                <button type="button" class="order-btn primarybtn" onclick="changeStatus('{{this._id}}')">Ship Order</button>
+                                 </td>   
+                            <td> <a> <button type="button" class="order-btn deleteBtn" onclick="cancelOrder('{{this._id}}')">Cancel Order</button></a>
+                            <a href="/admin/view-ordered-item/{{this._id}}" ><button type="button"  class="order-btn viewProd px-3">View Item</button></a>
+                                 </td>  
+                        </tr>
+                        
+                    </tbody>
+                    {{/each}}
+                </table>
+                </div>
+            </div>
+                    {{else}}
+            <h3 class="text-center shadow-sm p-3 mb-5 bg-white rounded">Orders not yet received...</h3>
+                 {{/if}}
+        </div>
+
+    </div>
+</div>

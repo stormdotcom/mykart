@@ -1,0 +1,287 @@
+ <div
+          id="message5"
+          class="alert alert-success alert-dismissible fade show alert-order mt-2 mx-5 "
+          style="margin-top: 10%;"
+          role="alert"
+        >   ✔
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div
+          id="message4"
+          class="alert alert-danger alert-dismissible fade show alert-order mt-2 mx-5 "
+          style="margin-top: 10%;"
+          role="alert"
+        >
+          <strong>
+            !
+          </strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+<section id="orders">
+  <div class="container ">
+    <div class="row orders">
+  
+      <div class="col-md-8  mb-5 flex-md-row shadow mr-5 orders-form">
+        <h2 class="fw-bold pt-4"> Billing Address </h2>    
+        <form action="" class="form-inline" id="checkout-form">
+          <div class="row">
+            <div class="col-md-6">
+            <input type="text" name="userId" value="{{user._id}}" hidden>
+             <input type="text" name="email" value="{{user.email}}" hidden>
+            <div class="form-group mt-3pt-3">
+              <label for="exampleInputEmail1"> First Name </label>
+              <input type="text" class="form-control" name="fname" value="{{userDetails.customerFName}}"
+              maxlength="25"
+              minlength="1"
+              oninput="InvalidMsg(this)"
+              required/>
+            </div>
+            </div>
+             <div class="col-md-6">
+              <div class="form-group ">
+              <label for="exampleInputPassword1">Last Name </label>
+              <input type="text" name="lname"
+              value="{{userDetails.customerLName}}" class="form-control"
+              maxlength="25"
+              minlength="1"
+              required/>
+            </div>
+            </div>
+ 
+          </div>
+          <div class="row">
+ 
+          </div>
+            <div class="row">
+            <div class="pt-3">
+              <label for="exampleInputEmail1">
+                Phone
+              </label>
+              <input
+              value="{{userDetails.mobileNo}}"
+              oninput="InvalidMsg1(this)"
+                type="text"
+                class="form-control"
+                name="phone"
+              maxlength="10"
+              minlength="10"
+              required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="pt-3">
+              <label for="exampleInputEmail1">
+                Address
+              </label>
+              <input
+              value="{{userDetails.address}}"
+                type="text"
+                class="form-control"
+                name="address"
+               maxlength="30"
+              minlength="1"
+              required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="pt-3 ">
+              <label for="exampleInputEmail1">
+                Address 2
+              </label>
+              <input
+                 value="{{userDetails.addressLineTwo}}"
+                type="text"
+                class="form-control"
+                placeholder="Optional"
+                name="addressLine2"
+              maxlength="30"
+              minlength="1"
+              required
+              />
+            </div>
+          </div>
+           <div class="row">
+            <div class="pt-3 ">
+              <label for="exampleInputEmail1">
+                City
+              </label>
+              <input
+                 value="{{userDetails.city}}"
+                type="text"
+                class="form-control"
+                name="city"
+               maxlength="25"
+               minlength="1"
+              required
+              />
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-5 pt-3">
+                <label for="country">Country</label>
+                <select class="form-control custom-select d-block w-100" name="country" id="country" required>
+                  <option value="">Choose...</option>
+                  <option>India</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+              <div class="col-md-4 pt-3">
+                <label for="state">State</label>
+                <select class="form-control custom-select d-block w-100" name="state" id="state" required>
+                  <option value="">Choose...</option>
+                  <option>Kerala</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              <div class="col-md-3 pt-3">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control"  value="{{userDetails.pinCode}}"
+                maxlength="7" minlength="4" name="zip" id="zip" placeholder="" required>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
+            </div>
+             <hr class="mb-4">
+             <h4 class="mb-3">Payment Method</h4>
+
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                 <input id="creditCard" name="payment-method" type="radio" value="Credit Card" class="custom-control-input" >
+                <label class="custom-control-label" for="credit">Credit card</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="debit" name="payment-method" type="radio" value="Debit Card" class="custom-control-input" >
+                <label class="custom-control-label" for="debit">Debit card</label>
+              </div>
+                  <div class="custom-control custom-radio">
+                <input id="cod" name="payment-method" type="radio" value="COD" class="custom-control-input" >
+                <label class="custom-control-label" for="cod">Cash On Delivery</label>
+              </div>
+            </div> 
+            <div class="cardInfo">
+            {{!-- <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cc-name">Name on card</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                <small class="text-muted">Full name as displayed on card</small>
+                <div class="invalid-feedback">
+                  Name on card is required
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cc-number">Credit card number</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <div class="invalid-feedback">
+                  Credit card number is required
+                </div>
+              </div>
+            </div> --}}
+            {{!-- <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">Expiration</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                <div class="invalid-feedback">
+                  Expiration date required
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <div class="invalid-feedback">
+                  Security code required
+                </div>
+              </div>
+            </div> --}}
+            </div> 
+            <hr class="mb-4">
+          <div class="form-group form-check">
+          </div>
+
+          <div class="row mb-3 mx-2">
+          <button type="submit" class="btn-advert"> 
+            Checkout
+          </button> </div>
+
+        </form>
+      </div>
+     <div class="col-md-3 shadow h-25 order-view-amount">
+                    <div class="pt-4">
+
+          <h5 class="mb-3">The total amount of</h5>
+        
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+            Amount without TAX 
+              <span>&#x20b9;  {{total}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+              Shipping
+              <span>Free</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+              <div>
+                <strong>The total amount of</strong>
+                <strong>
+                  <p class="mb-0">(including VAT)</p>
+                </strong>
+              </div>
+              <span><strong>&#x20b9;  {{finalAmt}}</strong></span>
+            </li>
+          </ul>
+            <div class="row py-3 mx-3 xm-mb-5">
+                <a href='/cart' class="text-center align-middle btn-advert xs-py-0 py-2 upper-case">Back to Cart</a
+            </div>
+
+        </div>
+          </div>
+    </div>
+  </div>
+</section>
+
+    <script>
+        function InvalidMsg(textbox) {
+  
+            if (textbox.value === '') {
+                textbox.setCustomValidity
+                      ('Entering Name is necessary!');
+            } else if (textbox.validity.typeMismatch) {
+                textbox.setCustomValidity
+                      ('Please Enter Name which is valid cannot contain any Special Char or Number!');
+            } else {
+                textbox.setCustomValidity('');
+            }
+  
+            return true;
+        }
+  function InvalidMsg1(textbox) {
+  
+            if (textbox.value === '') {
+                textbox.setCustomValidity
+                      ('Phone Number Required');
+            } else if (textbox.validity.typeMismatch) {
+                textbox.setCustomValidity
+                      ('Only accept Numbers!');
+            } else {
+                textbox.setCustomValidity('');
+            }
+  
+            return true;
+        }
+    </script>

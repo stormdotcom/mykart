@@ -1,0 +1,55 @@
+<section>
+    <div class="container mb-4">
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 ">
+                <h2 class="text-center pb-4">Edit Products</h2>
+      <div class=" back-btn">
+        <a href="/admin" class="btn btn-primary mb-3 w-30"> back</a>
+      </div>
+                <form action="/admin/edit-product/{{product._id}}" method="POST" enctype="multipart/form-data">
+  <div class="form-group mb-2 mt-">
+    <label for="">Item No</label>
+    <input type="text" class="form-control" name="itemNo"  value="{{product.itemNo}}">
+  </div>
+  <div class="form-group mb-2">
+    <label for="">Item Name</label>
+    <input type="text" class="form-control" name="itemName" value="{{product.itemName}}">
+  </div>
+  <div class="form-group mb-2">
+    <label for="">Category</label>
+    <select class="form-control" name="category"  value="{{product.category}}">
+    <option value="SmartPhone">SmartPhone</option>
+    <option value="HeadPhone">HeadPhone</option>
+    <option value="mercedes">Wireless-HeadPhone</option>
+    <option value="Charger">Charger</option>
+     <option value="USB Cable">USB Cable</option>
+     </select>
+    
+  </div>
+  <div class="form-group mb-2">
+    <label for="">Price</label> <small>(in rupees  &#x20b9;)</small>
+    <input type="text" class="form-control" name="price"  value="{{ product.price}}">
+  </div>
+    <div class="form-group mb-2">
+    <label for="">Description</label>
+    <input type="text" class="form-control" name="description" value="{{product.description}}">
+  </div>
+    <div class="form-group mb-2">
+    <label for="">Image</label>
+    <img src="#" alt="product-image" style="width: 100px; height: 100px; padding: 3%" id="uploadedImg">
+    <input type="file" class="form-control" name="image" accept="image/x-png,image/gif,image/jpeg" id="imgInput">
+  </div>
+ <div class="form-group mb-2 text-center"></div>
+ <div class="row justify-content-center">
+  <button type="submit" class="row btn btn-success mt-4  ">Update</button> </div>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+</script>

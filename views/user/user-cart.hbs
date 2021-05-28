@@ -1,0 +1,176 @@
+<section class="cart">
+<div class="container">
+    {{#if product}}
+  <div class="row">
+
+    <div class="col-lg-8">
+      {{!-- RemoveCart Item alert --}}
+                <div class="alert alert-warning alert-dismissible fade show" id="message6" role="alert">
+                  <strong>Success</strong> 
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {{!-- Add to wish list Alert --}}
+                  <div class="alert alert-warning alert-dismissible fade show" id="message1" role="alert">
+                  <strong>Success</strong> 
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+      <div class="mb-3">
+        <div class="pt-4 wish-list shadow-sm p-3 mb-5 bg-white rounded ">
+              {{#each product}}
+          <div class="row mb-4 pt-4 ">
+            <div class="col-md-5 col-lg-3 col-xl-3">
+              <div class=" hover-zoom z-depth-1 rounded mb-3 mb-md-0">
+                <img ""
+                  src="/images/product/{{this.product._id}}.jpg" style="width: 50%; height: 50%" alt="Item">
+                {{!-- <a href="#!">
+                  <div class="mask">
+                    <img class="img-fluid w-100"
+                     src="/images/product/{{this.product._id}}.jpg">
+                    <div class="mask rgba-black-slight"></div>
+                  </div>
+                </a> --}}
+              </div>
+          
+            </div>
+            <div class="col-md-7 col-lg-9 col-xl-9">
+              <div>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h5>{{this.product.itemName}}</h5>
+                    <p class="mb-3 text-muted text-uppercase small">{{this.product.category}} - blue</p>
+                  </div>
+                  <div>
+                    <div class="def-number-input number-input safari_only mb-0 w-100">
+                       <button class="quantity-left-minus btn btn-light btn-number my-2" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1)" data-type="minus" data-field="">-</button> 
+                          <span id="{{this.product._id}}" class="px-2">{{this.quantity}} </span>
+              
+                        <button class="quantity-right-plus btn btn-light btn-number"  onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)" data-type="plus" data-field="">+</button>
+                    </div>
+                    <small id="passwordHelpBlock" class="form-text text-muted text-center">
+                      (Note, 1 piece)
+                    </small>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                     <button onclick="removeItemCart('{{this.product._id}}')" class="btn btn-danger text-uppercase" onclick="confirm('Remove from cart ?')"><i
+                        class="fas fa-trash-alt mr-1"></i> Remove item </button>
+                         
+                    <button onclick="addToWish('{{this.product._id}}')" 
+                    class="btn btn-warning text-decoration-none text-uppercase">
+                     <i class="fas fa-heart mr-1"> </i> Move to wish list </button>
+                  </div>
+                  <p class="mb-0"><span><strong id="summary">&#x20b9;  {{this.product.price}}</strong></span></p class="mb-0">
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+             {{/each}}
+
+        
+          <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
+            items to your cart does not mean booking them.</p>
+
+        </div>
+      </div>
+     
+      <!-- Card -->
+
+  
+
+      <!-- Card -->
+      <div class="mb-3 shadow-sm p-3 mb-5 bg-white rounded text-center">
+        <div class="pt-4">
+
+          <h5 class="mb-4">We accept</h5>
+
+          <img class="mr-2" width="45px"
+            src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+            alt="Visa">
+          <img class="mr-2" width="45px"
+            src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+            alt="American Express">
+          <img class="mr-2" width="45px"
+            src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+            alt="Mastercard">
+          <img class="mr-2" width="45px"
+            src="https://images.news18.com/ibnlive/uploads/2020/02/UPI.jpg?impolicy=website&width=534&height=356"
+            alt="UPI acceptance mark">
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-4">
+
+      <!-- Card -->
+      <div class="mb-3 shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="pt-4">
+
+          <h5 class="mb-3">The total amount of</h5>
+        
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+            Amount without TAX 
+            <p>   &#x20b9;  <span id="totalAmount"> {{total}}</span></p>
+           
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+              Shipping
+              <span>Free</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+              <div>
+                <strong>The total amount of</strong>
+                <strong>
+                  <p class="mb-0">(including VAT)</p>
+                </strong>
+              </div>
+             <strong>&#x20b9;<span id="finalAmount"> {{finalAmt}}</span> </strong>
+            </li>
+          </ul>
+            
+          <a href='/orders/payment' class="btn btn-4 text-uppercase">place order</a>
+
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="mb-3 shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="pt-4">
+
+          <a class="dark-grey-text d-flex justify-content-between text-decoration-none" data-toggle="collapse" href="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Add a discount code (optional)
+            <span><i class="fas fa-chevron-down pt-1"></i></span>
+          </a>
+
+          <div class="collapse" id="collapseExample">
+            <div class="mt-3">
+              <div class="md-form md-outline mb-0">
+                <input type="text" id="discount-code" class="form-control font-weight-light"
+                  placeholder="Enter discount code">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+   {{else}} 
+     <h3 class="text-center shadow-sm p-3 mb-5 bg-white rounded cart-mob">Cart is empty...</h3>
+    {{/if}}
+  </div>
+
+
+</section>

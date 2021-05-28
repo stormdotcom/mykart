@@ -1,0 +1,83 @@
+<section>
+  <div class="container">
+    <div class="row">
+      {{#if orders}}
+        {{! class="pt-2 mx-5 d-flex justify-content-center " }}
+
+        <div class="col-md-12 mt-4 order-table">
+          <h3 class="px-2 align-center bold-head">
+            Order history
+          </h3>
+                 
+          <table class="table">
+            <thead>
+              <th>
+                Date
+              </th>
+              <th>
+                Address
+              </th>
+              <th>
+                Zip Code
+              </th>
+              <th>
+                Amount
+              </th>
+              <th>
+                Payment Method
+              </th>
+              <th>
+                Status
+              </th>
+              <th>
+                Action
+              </th>
+            </thead>
+            <tbody>
+              {{#each orders}}
+                <tr>
+                  <td data-label="Date">
+                    {{this.date}}
+                  </td>
+                  <td data-label="Address">
+                    {{this.deliveryDetails.address}}
+                    ,
+                  </td>
+                  <td data-label="Zip Code">
+                    {{this.deliveryDetails.pinCode}}
+                  </td>
+                  <td data-label="Amount">
+                    ₹
+                    {{this.finalAmount}}
+                  </td>
+                  <td data-label="Payment Method">
+                    {{this.paymentMethod}}
+                  </td>
+                  <td data-label="Status">
+                    {{this.status}}
+                  </td>
+                  <td data-label="Action">
+                    <a
+                      href="/orders/view-products/{{this._id}}"
+                      class="btn btn-info btn-sm px-3 btn-4"
+                    >
+                      View Product
+                    </a>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      {{else}}
+        <section class="pt-5">
+          <div class="row mt-5">
+            <h3 class="text-center shadow-sm p-3 mb-5 bg-white rounded">
+              No orders Found
+            </h3>
+          </div>
+        </section>
+      {{/if}}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,56 @@
+<header class="header skin-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="/admin"> <img src="/images/body/MYKART-logo.jpg" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/admin">Admin Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/product">Product List</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="#sales">Sales</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="/admin/order-list">Orders List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#product">Service Quotes</a>
+                        </li>
+
+                    </ul>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                {{#if admin}}
+                    {{admin.fullname}}
+                    {{else}}
+                    Account
+                 {{/if }}     
+                        </a>
+                        <ul class="dropdown-menu menu-drop" aria-labelledby="navbarDropdown">
+                 {{#if admin}}
+                   <li><a class="dropdown-item waves-effect waves-light" href="#">Settings</a></li>
+                {{/if }}  
+                 {{#if admin}}
+                    <li><a class="dropdown-item waves-effect waves-light" href="#">Post Story</a></li>
+                {{/if }} 
+
+                {{#if admin}}
+                     <li><a class="dropdown-item waves-effect waves-light" href="/admin/logout">Logout</a></li>
+                    {{else}}
+                        <li><a class="dropdown-item waves-effect waves-light" href="/admin/login">Login</a></li>
+                        {{/if }} 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>

@@ -1,0 +1,32 @@
+{
+  "name": "shopping-kart",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "bcrypt": "^5.0.1",
+    "connect-mongodb-session": "^2.4.1",
+    "cookie-parser": "~1.4.4",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.0.0",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-fileupload": "^1.2.1",
+    "express-handlebars": "^5.3.0",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.11.1",
+    "hbs": "^4.1.2",
+    "http-errors": "~1.6.3",
+    "mongodb": "^3.6.6",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.7",
+    "promise": "^8.1.0",
+    "razorpay": "^2.0.6"
+  },
+  "devDependencies": {
+    "handlebars": "^4.7.7"
+  }
+}

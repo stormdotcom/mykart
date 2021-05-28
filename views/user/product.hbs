@@ -1,0 +1,107 @@
+<section>
+  <div class="container bg-light">
+    <div class="row">
+      <div class="col-lg-12 p-md-5 text-center">
+        <h1 class="display-4 font-weight-normal product-head">
+          Some headline
+        </h1>
+        <p class="lead font-weight-normal">
+          And an even wittier subheading to boot..
+        </p>
+        <a class="btn btn-outline-secondary" href="#">
+          Coming soon
+        </a>
+      </div>
+      <h3 class="text-center display-2 strong mt-5" style="font-weight: bold;">
+        Accessories
+      </h3>
+      <p class="text-center display-6">
+        Some sample text
+      </p>
+      <div
+        class="row  row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mx-auto mt-5"
+      >
+        {{#each accessories}}
+          <div class="col mb-4 p-1 align-center mx-auto">
+            <div class="card card-style" >
+              <img
+                src="/images/product/{{this._id}}.jpg"
+                class="card-img-top mx-auto my-auto"
+                style="height: 10rem; width: 7rem; padding: 3%"
+                alt="product-image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{this.itemName}}
+                </h5>
+                <p class="card-text">
+                  ₹
+                  {{this.price}}
+                </p>
+                <p class="card-text">
+                  {{this.description}}
+                  .
+                </p>
+                <div class="row mx-auto">
+                  <button
+                    onclick="addToCart('{{this._id}}')"
+                    class="btn-advert"
+                  >
+                     <i class="fas fa-shopping-cart"></i>  ADD To CART
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      <h3
+        class="text-center display-2 strong mt-5"
+        id="smartphone"
+        style="font-weight: bold;"
+      >
+        Smart Phone
+      </h3>
+      <p class="text-center display-6">
+        Buy your best smart device
+      </p>
+      <div
+        class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mb-5 mx-auto mt-5"
+      >
+        {{#each products}}
+          <div class="col mb-4 p-1 align-center smart-phone-mob">
+            <div class="card card-style">
+              <img
+                src="/images/product/{{this._id}}.jpg"
+                class="card-img-top mx-auto my-auto"
+                style="height: 10rem; width: 7rem; padding: 3%"
+                alt="product-image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{this.itemName}}
+                </h5>
+                <p class="card-text">
+                  ₹
+                  {{this.price}}
+                </p>
+                <p class="card-text">
+                  {{this.description}}
+                  .
+                </p>
+                <div class="row mx-auto">
+                  <button
+                    onclick="addToCart('{{this._id}}')"
+                    class="btn-advert"
+                  >
+                    <i class="fas fa-shopping-cart"></i> ADD To CART
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>

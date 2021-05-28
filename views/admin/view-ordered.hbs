@@ -1,0 +1,32 @@
+            <section>
+                <div class="container ">
+                    <div class="row ">
+                         <div class="order-view-product"></div>
+                         {{#each products}}
+                        
+                <div class="col-md-3  p-2" >
+                    <div class="card" style="width: 17rem; height: 19rem;">
+                        <img src="/images/product/{{this.product._id}}.jpg" class="card-img-top mx-auto"
+                        style="height: 10rem; width: 7rem; padding: 3%" 
+                        alt="product-image">
+                        <div class="card-body">
+                            <h5 class="card-title justify-content-center">{{this.product.itemName}} </h5>
+                            <p class="card-text d-print-inline-block">Price&#x20b9; {{this.product.price}}   </p>
+                             <p class="card-text d-print-inline-block"> Quantity : {{this.quantity}}  <span class="px-2"></span> Item No: {{this.product.itemNo}}</p>
+            
+                          
+                        </div>
+                    </div> 
+
+               
+                </div>
+                {{/each}}
+                 </div>
+                 <div class="my-2">
+                 <a href="/admin/order-list"> <button  class="btn btn-primary">Go Back </button> </a>
+                  </div>
+                    </div>
+                </div>
+                
+            </section>
+               

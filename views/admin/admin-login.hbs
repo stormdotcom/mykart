@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row login">
+
+
+        <!-- Login Form -->
+        <div class="col-md-7 col-lg-6 login-form ">
+             <H1 class="display-5 strong bold pt-4 ">Admin Credentials</H1>
+            <form action="/admin/login" method="post">
+                <div class="row pt-5 mt-5 ">
+                    {{#if loginErr}}
+                    <div class="alert alert-warning alert-dismissible fade show w-60 p-3" role="alert">
+                        <strong>Error</strong>  Invalid Email Or Password
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                     {{/if}}
+
+                    <!-- User Name -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+
+                        </div>
+                        <input id="firstName" type="email" name="email" placeholder="Email"
+                            class="form-control bg-white border-left-0 border-md">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            </span>
+                        </div>
+                        <input id="lastName" type="password" name="password" placeholder="Password"
+                            class="form-control bg-white border-left-0 border-md">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group col-lg-12 mt-4 mb-3 justify-content-center">
+                        <button type="submit" class="btn btn-primary">Login</button>
+
+                    </div>
+
+
+
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
